@@ -1009,7 +1009,8 @@ def stock_zh_a_hist(
     :return: 每日行情
     :rtype: pandas.DataFrame
     """
-    code_id_dict = code_id_map_em()
+    #code_id_dict = code_id_map_em()
+
     adjust_dict = {"qfq": "1", "hfq": "2", "": "0"}
     period_dict = {"daily": "101", "weekly": "102", "monthly": "103"}
     url = "http://push2his.eastmoney.com/api/qt/stock/kline/get"
@@ -1019,7 +1020,7 @@ def stock_zh_a_hist(
         "ut": "7eea3edcaed734bea9cbfc24409ed989",
         "klt": period_dict[period],
         "fqt": adjust_dict[adjust],
-        "secid": f"{code_id_dict[symbol]}.{symbol}",
+        "secid": f"1.{symbol}", #f"{code_id_dict[symbol]}.{symbol}",
         "beg": start_date,
         "end": end_date,
         "_": "1623766962675",
